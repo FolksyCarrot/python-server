@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
-from animals import get_all_animals, get_single_animal, get_animal_by_location, find_animals_by_status, delete_animal, update_animal
+from animals import get_all_animals, get_single_animal, get_animal_by_location, find_animals_by_status, delete_animal, update_animal, create_animal
 from employees import get_employees, get_single_employee, create_employee, delete_employee, update_employee, find_employees_by_location
 from locations import get_locations, get_single_location, create_location, delete_location, update_location
 from customers import get_customers, get_single_customer, create_customer, delete_customer, update_customer, get_customers_by_email
@@ -143,7 +143,7 @@ class HandleRequests(BaseHTTPRequestHandler):
         # the orange squiggle, you'll define the create_animal
         # function next.
         if resource == "animals":
-            new_animal = ""
+            new_animal = create_animal(post_body)
             self.wfile.write(f"{new_animal}".encode())
         elif resource == "locations":
             new_location = create_location(post_body)
