@@ -174,6 +174,7 @@ def update_animal(id, new_animal):
         # Were any rows affected?
         # Did the client send an `id` that exists?
         rows_affected = db_cursor.rowcount
+        
 
     if rows_affected == 0:
         # Forces 404 response by main module
